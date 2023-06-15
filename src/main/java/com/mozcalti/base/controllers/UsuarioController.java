@@ -1,14 +1,41 @@
 package com.mozcalti.base.controllers;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.mozcalti.base.models.UsuarioModel;
 import com.mozcalti.base.service.UsuarioService;
 
+@RestController
+@RequestMapping("/usuario")
+public class UsuarioController{
+    @Autowired
+    UsuarioService usuarioService;
+
+    @GetMapping()
+    public ArrayList<UsuarioModel> getUsuarios(){
+        return this.usuarioService.obtenerUsuarios();
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
@@ -40,3 +67,4 @@ public class UsuarioController {
         }
     }
 }   
+ */

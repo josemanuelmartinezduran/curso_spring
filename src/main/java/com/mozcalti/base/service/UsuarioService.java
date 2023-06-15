@@ -1,7 +1,6 @@
 package com.mozcalti.base.service;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +9,16 @@ import com.mozcalti.base.models.UsuarioModel;
 import com.mozcalti.base.repository.UsuarioRepository;
 
 @Service
+public class UsuarioService {
+    @Autowired
+    UsuarioRepository usuarioRepository;
+
+    public ArrayList<UsuarioModel> obtenerUsuarios(){
+        return (ArrayList<UsuarioModel>)usuarioRepository.findAll();
+    }
+}
+
+/* @Service
 public class UsuarioService {
     @Autowired
     UsuarioRepository usuarioRepository;
@@ -39,4 +48,4 @@ public class UsuarioService {
         }
         
     }
-}
+} */
